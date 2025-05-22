@@ -335,7 +335,7 @@ export default function IPDetailsPage() {
                       </div>
                     </div>
                     <DialogFooter>
-                      <Button variant="outline" onClick={() => setPurchaseDialogOpen(false)}>
+                      <Button variant="outline" className="text-black" onClick={() => setPurchaseDialogOpen(false)}>
                         Cancel
                       </Button>
                       <Button className="bg-purple-600 hover:bg-purple-700">Continue to Payment</Button>
@@ -368,7 +368,7 @@ export default function IPDetailsPage() {
                       </p>
                     </div>
                     <DialogFooter>
-                      <Button variant="outline" onClick={() => setRemixDialogOpen(false)}>
+                      <Button variant="outline" className="text-black" onClick={() => setRemixDialogOpen(false)}>
                         Cancel
                       </Button>
                       <Button className="bg-purple-600 hover:bg-purple-700">Submit Request</Button>
