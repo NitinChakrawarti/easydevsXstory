@@ -1,9 +1,30 @@
+'use client'
+
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { ConnectWalletButton } from "./connect-wallet-button"
+import Link from "next/link"
+import { useState } from "react"
 
 export function HeroSection() {
+  const [connecting, setConnecting] = useState(false)
+
+  const handleConnect = () => {
+    const walletAddress = localStorage.getItem("walletAddress")
+    if (walletAddress) {
+      window.location.href = "/explore"
+    } else {
+      // Simulate connecting
+      setConnecting(true)
+      setTimeout(() => {
+        const mockAddress = "0x" + Math.random().toString(16).slice(2, 12)
+        localStorage.setItem("walletAddress", mockAddress)
+        setConnecting(false)
+        window.location.href = "/explore"
+      }, 1000)
+    }
+  }
+
   return (
     <section className="container mx-auto px-4 py-24 md:py-32">
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-16">
@@ -23,11 +44,18 @@ export function HeroSection() {
             enforce legal protection backed by verifiable proof of ownership.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <Button variant="outline" className=" bg-gradient-to-r from-purple-400 to-blue-400 text-white hover:text-black hover:bg- ">
-              Get Started
+            <Button
+              variant="outline"
+              onClick={handleConnect}
+              className="bg-gradient-to-r from-purple-400 to-blue-400 text-white hover:text-black"
+              disabled={connecting}
+            >
+              {connecting ? "Connecting..." : "Get Started"}
             </Button>
             <Button variant="outline" className="border-purple-500 text-black hover:text-white hover:bg-purple-900/20">
-              Learn More
+              <Link href='/explore'>
+                Learn More
+              </Link>
             </Button>
           </div>
           <div className="flex items-center space-x-4 text-sm">
@@ -40,10 +68,12 @@ export function HeroSection() {
               ))}
             </div>
             <p className="text-gray-300">
-             Many creators already protected
+              Many creators already protected
             </p>
           </div>
         </div>
+
+        {/* Right Side Illustration */}
         <div className="relative">
           <div className="w-full h-[400px] md:h-[500px] relative rounded-2xl overflow-hidden border border-purple-500/20 backdrop-blur-sm">
             <div className="absolute inset-0 bg-gradient-to-br from-purple-900/40 to-blue-900/40"></div>

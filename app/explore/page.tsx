@@ -6,6 +6,7 @@ import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/componen
 import { Input } from "@/components/ui/input"
 import { Badge } from "@/components/ui/badge"
 import { Search, FileText, ImageIcon, Video, Eye } from "lucide-react"
+import Link from "next/link"
 
 // Sample IP data
 const sampleIPs = [
@@ -97,11 +98,11 @@ export default function ExplorePage() {
   // Filter IPs based on search query
   const filteredIPs = searchQuery
     ? sampleIPs.filter(
-        (ip) =>
-          ip.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          ip.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
-          ip.keywords.some((keyword) => keyword.toLowerCase().includes(searchQuery.toLowerCase())),
-      )
+      (ip) =>
+        ip.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        ip.description.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        ip.keywords.some((keyword) => keyword.toLowerCase().includes(searchQuery.toLowerCase())),
+    )
     : sampleIPs
 
   // Get icon based on content type
@@ -121,12 +122,21 @@ export default function ExplorePage() {
   return (
     <div className="w-full min-h-screen bg-gradient-to-b from-black to-slate-900 bg-black text-white p-6">
       <div className="max-w-7xl z-50 relative mx-auto">
-        <h1 className="text-4xl font-bold mb-2 text-center">
-          <span className="text-purple-400">Explore</span> Intellectual Property
-        </h1>
-        <p className="text-gray-300 text-center mb-10">
-          Discover and browse through protected intellectual property assets on our blockchain platform
-        </p>
+        <div className="flex justify-between i ">
+          <div>
+            <h1 className="text-4xl font-bold mb-2 text-center">
+              <span className="text-purple-400">Explore</span> Intellectual Property
+            </h1>
+            <p className="text-gray-300 text-center mb-10">
+              Discover and browse through protected intellectual property assets on our blockchain platform
+            </p>
+          </div>
+          <div>
+            <Button>
+              <Link href='/addIP' className="text-purple-400">Add New IP</Link>
+            </Button>
+          </div>
+        </div>
 
         {/* Search Bar */}
         <div className="relative mb-10 max-w-2xl mx-auto">
@@ -170,10 +180,12 @@ export default function ExplorePage() {
                 <div className="text-xs text-gray-500">
                   By {ip.creator} • {new Date(ip.dateCreated).toLocaleDateString()}
                 </div>
-                <Button variant="ghost" size="sm" className="text-purple-400 hover:text-purple-300 hover:bg-gray-800">
-                  <Eye className="h-4 w-4 mr-1" />
-                  Details
-                </Button>
+                <Link href={`/${ip.id}`} className="flex items-center">
+                  <Button variant="ghost" size="sm" className="text-purple-400 hover:text-purple-300 hover:bg-gray-800">
+                    <Eye className="h-4 w-4 mr-1" />
+                    Details
+                  </Button>
+                </Link>
               </CardFooter>
             </Card>
           ))}

@@ -8,13 +8,26 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Shield, FileText, ImageIcon, Video } from "lucide-react"
+import { Shield, FileText, ImageIcon, Video, ArrowLeft } from "lucide-react"
+import { useRouter } from "next/navigation"
 
 export default function AddIP() {
   const [contentType, setContentType] = useState("text")
+    const router = useRouter()
+  
 
   return (
     <div className="w-full min-h-screen bg-black bg-gradient-to-b from-black to-slate-900 text-white p-6">
+      <div className="max-w-7xl mx-auto px-6 py-4">
+          <Button
+            variant="ghost"
+            className="text-gray-400 hover:text-white hover:bg-gray-800"
+            onClick={() => router.back()}
+          >
+            <ArrowLeft className="h-4 w-4 mr-2" />
+            Back to Explore
+          </Button>
+        </div>
       <div className="max-w-3xl mx-auto">
         <h1 className="text-4xl font-bold mb-2 text-center">
           <span className="text-purple-400">Blockchain-Powered</span> IP Protection

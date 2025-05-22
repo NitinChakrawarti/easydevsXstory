@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Wallet } from "lucide-react"
 
@@ -9,12 +9,21 @@ export function ConnectWalletButton() {
   const [connected, setConnected] = useState(false)
   const [walletAddress, setWalletAddress] = useState("")
 
+  // Load wallet address from localStorage on mount
+  useEffect(() => {
+    const savedAddress = localStorage.getItem("walletAddress")
+    if (savedAddress) {
+      setWalletAddress(savedAddress)
+      setConnected(true)
+    }
+  }, [])
+
   const handleConnect = () => {
     setConnecting(true)
-    // Simulate wallet connection
     setTimeout(() => {
       const mockAddress = "0x" + Math.random().toString(16).slice(2, 12)
       setWalletAddress(mockAddress)
+      localStorage.setItem("walletAddress", mockAddress) // Save to localStorage
       setConnected(true)
       setConnecting(false)
     }, 1000)
@@ -23,6 +32,7 @@ export function ConnectWalletButton() {
   const handleDisconnect = () => {
     setConnected(false)
     setWalletAddress("")
+    localStorage.removeItem("walletAddress") // Clear from localStorage
   }
 
   if (connected) {
