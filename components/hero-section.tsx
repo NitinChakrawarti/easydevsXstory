@@ -6,7 +6,7 @@ import { ConnectWalletButton } from "./connect-wallet-button"
 export function HeroSection() {
   return (
     <section className="container mx-auto px-4 py-24 md:py-32">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center px-16">
         <div className="space-y-8">
           <Badge className="bg-purple-900/30 text-purple-300 border-purple-500 px-4 py-1 text-sm rounded-full">
             Blockchain-Powered IP Protection
@@ -23,8 +23,10 @@ export function HeroSection() {
             enforce legal protection backed by verifiable proof of ownership.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <ConnectWalletButton />
-            <Button variant="outline" className="border-purple-500 text-white hover:bg-purple-900/20">
+            <Button variant="outline" className=" bg-gradient-to-r from-purple-400 to-blue-400 text-white hover:text-black hover:bg- ">
+              Get Started
+            </Button>
+            <Button variant="outline" className="border-purple-500 text-black hover:text-white hover:bg-purple-900/20">
               Learn More
             </Button>
           </div>
@@ -38,7 +40,7 @@ export function HeroSection() {
               ))}
             </div>
             <p className="text-gray-300">
-              <span className="text-white font-bold">5,000+</span> creators already protected
+             Many creators already protected
             </p>
           </div>
         </div>
