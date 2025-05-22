@@ -5,7 +5,7 @@ export function TestimonialsSection() {
   const testimonials = [
     {
       content:
-        "ChainProof helped me protect my digital art collection and set up passive income through licensing. When someone stole my work, I had timestamped proof of ownership.",
+        "MetaIP helped me protect my digital art collection and set up passive income through licensing. When someone stole my work, I had timestamped proof of ownership.",
       author: "Alex Rivera",
       title: "Digital Artist",
       avatar: "/placeholder.svg?height=80&width=80",
@@ -19,7 +19,7 @@ export function TestimonialsSection() {
     },
     {
       content:
-        "My software code was copied by a competitor. Thanks to ChainProof's blockchain certification, I had irrefutable evidence of prior creation and won my case.",
+        "My software code was copied by a competitor. Thanks to MetaIP's blockchain certification, I had irrefutable evidence of prior creation and won my case.",
       author: "David Chen",
       title: "Software Developer",
       avatar: "/placeholder.svg?height=80&width=80",
@@ -42,7 +42,7 @@ export function TestimonialsSection() {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
         {testimonials.map((testimonial, index) => (
-          <Card key={index} className="bg-black/40 border-purple-500/20 backdrop-blur-sm overflow-hidden">
+          <Card key={index} className="bg-black/20 opacity-90 backdrop-blur-lg   border-purple-500/20 overflow-hidden">
             <CardContent className="p-6">
               <div className="mb-4">
                 <svg className="text-purple-400 h-6 w-6" fill="currentColor" viewBox="0 0 24 24">
@@ -61,7 +61,7 @@ export function TestimonialsSection() {
                   />
                 </div>
                 <div>
-                  <h3 className="font-semibold">{testimonial.author}</h3>
+                  <h3 className="font-semibold text-white">{testimonial.author}</h3>
                   <p className="text-sm text-gray-400">{testimonial.title}</p>
                 </div>
               </div>

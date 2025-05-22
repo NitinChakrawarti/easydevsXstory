@@ -119,8 +119,8 @@ export default function ExplorePage() {
   }
 
   return (
-    <div className="w-full min-h-screen bg-black text-white p-6">
-      <div className="max-w-7xl mx-auto">
+    <div className="w-full min-h-screen bg-gradient-to-b from-black to-slate-900 bg-black text-white p-6">
+      <div className="max-w-7xl z-50 relative mx-auto">
         <h1 className="text-4xl font-bold mb-2 text-center">
           <span className="text-purple-400">Explore</span> Intellectual Property
         </h1>
