@@ -124,7 +124,7 @@ export default function ExplorePage() {
       <div className="max-w-7xl z-50 relative mx-auto">
         <div className="flex justify-between i ">
           <div>
-            <h1 className="text-4xl font-bold mb-2 text-center">
+            <h1 className="text-4xl font-bold mb-2">
               <span className="text-purple-400">Explore</span> Intellectual Property
             </h1>
             <p className="text-gray-300 text-center mb-10">
@@ -139,7 +139,7 @@ export default function ExplorePage() {
         </div>
 
         {/* Search Bar */}
-        <div className="relative mb-10 max-w-2xl mx-auto">
+        <div className="relative mb-10 max-w-2xl ">
           <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
             <Search className="h-5 w-5 text-gray-400" />
           </div>
